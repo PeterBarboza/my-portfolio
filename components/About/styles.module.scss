@@ -1,0 +1,9 @@
+.image {
+  box-sizing: content-box;
+}
+
+.image>img {
+  height: 20px;
+
+  display: none;
+}
