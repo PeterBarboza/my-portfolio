@@ -1,11 +1,13 @@
 import { ReactNode } from "react"
 
+import styles from "./styles.module.scss"
+
 type props = {
   children: ReactNode
 }
 export function Layout({ children }: props) {
   return (
-    <div className="w-full h-fit min-h-screen flex flex-col justify-start items-start scroll-smooth">
+    <div className={styles.layout}>
       {children}
     </div>
   )
