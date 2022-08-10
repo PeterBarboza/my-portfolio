@@ -1,13 +1,28 @@
 import Image from "next/image"
+import { useEffect, useRef } from "react"
 
 import styles from "./styles.module.scss"
 
 export function About() {
+  const headLineRef = useRef(null)
+
+  function typewrite(element: any) {
+    const text: string[] = element.innerText.split('')
+    element.innerText = " "
+
+    text.forEach((letter, index) => {
+      setTimeout(function () {
+        element.innerHTML += letter;
+      }, 75 * index)
+    })
+  }
+
+  useEffect(() => {
+    typewrite(headLineRef.current)
+  }, [])
+
   return (
     <section className={styles.about}>
-      <h3 className={styles.h3}>
-        Quem sou eu
-      </h3>
       <div className={styles.myPhotoBorder}>
         <div className={styles.myPhotoWrapper}>
           <Image
@@ -20,18 +35,22 @@ export function About() {
           />
         </div>
       </div>
+      <h1 className={styles.headline} ref={headLineRef}>
+        Olá! Sou Pedro Barboza<br />Desenvolvedor web fullstack
+      </h1>
       <div className={styles.textBox}>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis culpa iste dignissimos natus
-          reprehenderit porro doloribus inventore quisquam numquam recusandae?</p>
+        <p>
+          Estudo desenvolvimento web a pouco mais de 2 anos, sempre me interessei por tecnologia desde a infância, então quando comecei a estudar programação foi amor a primeira vista. E agora depois de já ter atuado tanto no frontend como no backend em alguns projetos reais, hoje procuro minha primeira oportunidade de trabalho como desenvolvedor.
+        </p>
       </div>
-      <h3 className={styles.h3}>Principais tecnologias</h3>
+      <div className={styles.divisionLine}></div>
+      <h2 className={styles.h2}>Principais tecnologias</h2>
       <div className={styles.technologiesBox}>
         <div className={styles.image}>
           <img
             loading="lazy"
             src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
             alt="HTML5"
-
           />
         </div>
 
