@@ -1,0 +1,91 @@
+.collapsedMenu {
+  transition-duration: 0.2s;
+
+  width: 80vw;
+  max-width: 200px;
+  min-height: 100vh;
+  height: fit-content;
+
+  background-color: #424242;
+
+  position: absolute;
+  top: 0;
+
+  z-index: 9999;
+
+  .closeButtonBox {
+    width: 30px;
+    height: 35px;
+
+    position: relative;
+    top: 0;
+    left: calc(100% - 30px);
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    .closeButton {
+      width: 10px;
+      height: 10px;
+
+      position: relative;
+
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+
+      transform: rotate(315deg);
+    }
+  }
+
+
+  .contactsbox {
+    width: 100%;
+    height: fit-content;
+
+    position: relative;
+    top: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    a {
+      transition-duration: 0.2s;
+      width: 100%;
+      height: fit-content;
+
+      .contact {
+        width: 100%;
+        height: 40px;
+
+        padding: 0 0 0 10px;
+
+        border-bottom: 1px solid #ffffff;
+        background-color: #424242;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+    }
+
+    a:hover {
+      filter: brightness(120%);
+    }
+  }
+}
+
+.isActive {
+  left: 0;
+}
+
+.isNotActive {
+  left: -200px;
+}
