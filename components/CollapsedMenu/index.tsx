@@ -30,6 +30,10 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
           <div className={styles.contact}>
           </div>
         </a>
+        <a href="">
+          <div className={styles.contact}>
+          </div>
+        </a>
 
       </div>
     </div>

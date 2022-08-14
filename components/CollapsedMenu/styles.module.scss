@@ -3,10 +3,10 @@
 
   width: 80vw;
   max-width: 200px;
-  min-height: 100vh;
-  height: fit-content;
+  min-height: fit-content;
 
   background-color: #424242;
+  border-bottom-right-radius: 10px;
 
   position: absolute;
   top: 0;
@@ -14,29 +14,22 @@
   z-index: 9999;
 
   .closeButtonBox {
-    width: 30px;
+    width: 100%;
     height: 35px;
-
-    position: relative;
-    top: 0;
-    left: calc(100% - 30px);
+    padding: 0 10px 0 0;
 
     cursor: pointer;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-
-
 
     .closeButton {
       width: 10px;
       height: 10px;
 
-      position: relative;
-
-      border-top: 2px solid #ffffff;
-      border-left: 2px solid #ffffff;
+      border-top: 2px solid #d4d4d4;
+      border-left: 2px solid #d4d4d4;
 
       transform: rotate(315deg);
     }
@@ -47,13 +40,16 @@
     width: 100%;
     height: fit-content;
 
-    position: relative;
-    top: 28px;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    a:last-child {
+      .contact {
+        border: 0;
+      }
+    }
 
     a {
       transition-duration: 0.2s;
@@ -66,14 +62,12 @@
 
         padding: 0 0 0 10px;
 
-        border-bottom: 1px solid #ffffff;
-        background-color: #424242;
+        border-bottom: 1px solid #d4d4d4;
 
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
       }
-
     }
 
     a:hover {
