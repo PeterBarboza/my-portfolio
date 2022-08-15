@@ -1,28 +1,31 @@
 import Image from "next/image"
 import { useEffect, useRef } from "react"
+import { DefaultSection } from "../DefaultSection"
 
 import styles from "./styles.module.scss"
 
 export function About() {
   const headLineRef = useRef(null)
-
-  function typewrite(element: any) {
-    const text: string[] = element.innerText.split('')
-    element.innerText = " "
-
-    text.forEach((letter, index) => {
-      setTimeout(function () {
-        element.innerHTML += letter;
-      }, 75 * index)
-    })
-  }
-
+  
   useEffect(() => {
+    function typewrite(element: any) {
+      const text: string[] = element.innerText.split('')
+      element.innerText = " "
+    
+      text.forEach((letter, index) => {
+        setTimeout(() => {
+          element.innerHTML += letter;
+        }, 75 * index)
+      })
+    }
+
     typewrite(headLineRef.current)
   }, [])
 
   return (
-    <section className={styles.about}>
+    <DefaultSection
+      wrapperStyles={{color: "#ffffff"}}
+    >
       <div className={styles.myPhotoBorder}>
         <div className={styles.myPhotoWrapper}>
           <Image
@@ -141,6 +144,6 @@ export function About() {
           />
         </div>
       </div>
-    </section>
+    </DefaultSection>
   )
 }
