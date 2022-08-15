@@ -19,6 +19,8 @@
     align-items: center;
     gap: 10px;
 
+    z-index: 11;
+
     cursor: pointer;
 
     .hamburguer {
@@ -44,5 +46,20 @@
 
       user-select: none;
     }
+  }
+
+  .menuShadow {
+    transition-duration: 0.2s;
+
+    width: 0%;
+
+    background-color: #00000080;
+
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
