@@ -1,25 +1,30 @@
-import { IconContext } from "react-icons"
-import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai"
+import { IconContext } from "react-icons";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
-import styles from "./styles.module.scss"
+import styles from "./styles.module.scss";
 
 type props = {
-  isOpen: boolean
-  handleMenu: () => void
-}
+  isOpen: boolean;
+  handleMenu: () => void;
+};
 
 export function CollapsedMenu({ isOpen, handleMenu }: props) {
   return (
     <div
-      className={`${styles.collapsedMenu} ${isOpen ? styles.isActive : styles.isNotActive}`}
+      className={`${styles.collapsedMenu} ${
+        isOpen ? styles.isActive : styles.isNotActive
+      }`}
     >
       <div className={styles.closeButtonBox} onClick={handleMenu}>
         <p>Voltar</p>
         <div className={styles.closeButton} />
       </div>
       <div className={styles.contactsbox}>
-
-        <a href="https://github.com/PeterBarboza" target="_blank">
+        <a
+          href="https://github.com/PeterBarboza"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className={styles.contact}>
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "50%" }}>
@@ -30,7 +35,11 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
           </div>
         </a>
 
-        <a href="https://br.linkedin.com/in/pedro-barboza-webdev" target="_blank">
+        <a
+          href="https://br.linkedin.com/in/pedro-barboza-webdev"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className={styles.contact}>
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "50%" }}>
@@ -41,7 +50,7 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
           </div>
         </a>
 
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noreferrer">
           <div className={styles.contact}>
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "50%" }}>
@@ -53,5 +62,5 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
         </a>
       </div>
     </div>
-  )
+  );
 }
