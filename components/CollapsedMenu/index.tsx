@@ -1,5 +1,10 @@
 import { IconContext } from "react-icons";
-import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiOutlineMail,
+  AiOutlineWhatsApp,
+} from "react-icons/ai";
 
 import styles from "./styles.module.scss";
 
@@ -58,6 +63,21 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
               </IconContext.Provider>
             </div>
             <p>pedro.barboza.dev@gmail.com</p>
+          </div>
+        </a>
+
+        <a
+          href="https://api.whatsapp.com/send?phone=5512996548767&text=Ol%C3%A1,%20vim%20pelo%20seu%20portf%C3%B3lio."
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className={styles.contact}>
+            <div className={styles.icon}>
+              <IconContext.Provider value={{ size: "50%" }}>
+                <AiOutlineWhatsApp color="#ffffff" />
+              </IconContext.Provider>
+            </div>
+            <p>+55 12 99654-8767</p>
           </div>
         </a>
       </div>
