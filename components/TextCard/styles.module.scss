@@ -16,9 +16,38 @@
 
   text-align: start;
   word-wrap: break-word;
-  word-break: break-all;
 
-  .list {
-    list-style: none;
+  .attachmentsBox {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      width: fit-content;
+      height: fit-content;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      color: #000000;
+      font-weight: 600;
+
+      .icon {
+        width: 30px;
+        height: 30px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
