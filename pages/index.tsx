@@ -1,12 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from "next";
+import Head from "next/head";
 
-import { Layout } from "../components/Layout"
-import { About } from "../components/About"
-import { Header } from '../components/Header'
-import { ProjectsSection } from '../components/ProjectsSection'
-import { TextCard } from '../components/TextCard'
-
+import { Layout } from "../components/Layout";
+import { About } from "../components/About";
+import { Header } from "../components/Header";
+import { ProjectsSection } from "../components/ProjectsSection";
+import { TextCard } from "../components/TextCard";
 
 const Home: NextPage = () => {
   return (
@@ -21,21 +20,19 @@ const Home: NextPage = () => {
       <ProjectsSection heading="Experiência profissional">
         <TextCard
           heading="Irbano"
-          projects={[
-            "Projeto desenvolvido para a área de turísmo."
-          ]}
+          text={["Projeto desenvolvido para a área de turísmo."]}
         />
       </ProjectsSection>
       <ProjectsSection heading="Projetos pessoais">
         <TextCard
           heading="AIBU"
-          projects={[
-            "Rede social inspirada no Twitter."
-          ]}
+          text={["Rede social inspirada no Twitter."]}
+          githubLink="#"
+          deployLink="#"
         />
       </ProjectsSection>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
