@@ -6,12 +6,12 @@ import styles from "./styles.module.scss"
 
 export function About() {
   const headLineRef = useRef(null)
-  
+
   useEffect(() => {
     function typewrite(element: any) {
       const text: string[] = element.innerText.split('')
       element.innerText = " "
-    
+
       text.forEach((letter, index) => {
         setTimeout(() => {
           element.innerHTML += letter;
@@ -24,16 +24,14 @@ export function About() {
 
   return (
     <DefaultSection
-      wrapperStyles={{color: "#ffffff"}}
+      wrapperStyles={{ color: "#ffffff" }}
     >
       <div className={styles.myPhotoBorder}>
         <div className={styles.myPhotoWrapper}>
-          <Image
+          <img
             loading="lazy"
             src="https://github.com/PeterBarboza.png"
             alt="Pedro Barboza"
-            width={200}
-            height={200}
             style={{ borderRadius: "100%" }}
           />
         </div>

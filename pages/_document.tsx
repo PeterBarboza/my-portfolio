@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import { Head, Html, Main, NextScript } from 'next/document'
-import { } from "next"
 
 const Document: NextPage = () => {
   return (

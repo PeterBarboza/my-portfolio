@@ -7,16 +7,14 @@ export function Header() {
   const [pageHeight, setPageHeight] = useState<number>(0)
 
   function handleMenu() {
-    console.log(pageHeight, isMenuOpen)
     setIsMenuOpen(prevState => !prevState)
   }
 
   useLayoutEffect(() => {
-    console.log("Renderizou")
+    console.log(window.screen.availHeight)
+    console.log(window.screen.height)
 
-    if(pageHeight != document.body.scrollHeight) {
-      setPageHeight(document.body.scrollHeight)
-    }
+    setPageHeight(document.body.clientHeight)
   }, [pageHeight])
 
   return (
@@ -30,17 +28,16 @@ export function Header() {
         <p>Contatos</p>
       </div>
       <CollapsedMenu isOpen={isMenuOpen} handleMenu={handleMenu} />
-      <div 
+      <div
         className={styles.menuShadow}
-        style={isMenuOpen? 
+        onClick={handleMenu}
+        style={isMenuOpen ?
           {
-            height: `${pageHeight}px`,
-            width: "100%"
-          } 
-          : 
+            display: "flex"
+          }
+          :
           {
-            height: `${pageHeight}px`,
-            width: "0%"
+            display: "none"
           }
         }
       ></div>

@@ -4,7 +4,8 @@ import Head from 'next/head'
 import { Layout } from "../components/Layout"
 import { About } from "../components/About"
 import { Header } from '../components/Header'
-import { WorkProjects } from '../components/WorkProjects'
+import { ProjectsSection } from '../components/ProjectsSection'
+import { TextCard } from '../components/TextCard'
 
 
 const Home: NextPage = () => {
@@ -17,7 +18,22 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <About />
-      <WorkProjects />
+      <ProjectsSection heading="Experiência profissional">
+        <TextCard
+          heading="Irbano"
+          projects={[
+            "Projeto desenvolvido para a área de turísmo."
+          ]}
+        />
+      </ProjectsSection>
+      <ProjectsSection heading="Projetos pessoais">
+        <TextCard
+          heading="AIBU"
+          projects={[
+            "Rede social inspirada no Twitter."
+          ]}
+        />
+      </ProjectsSection>
     </Layout>
   )
 }
