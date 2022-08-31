@@ -3,7 +3,7 @@ import {
   AiFillGithub,
   AiFillLinkedin,
   AiOutlineMail,
-  AiOutlineWhatsApp,
+  AiOutlineWhatsApp
 } from "react-icons/ai";
 
 import styles from "./styles.module.scss";
@@ -16,9 +16,8 @@ type props = {
 export function CollapsedMenu({ isOpen, handleMenu }: props) {
   return (
     <div
-      className={`${styles.collapsedMenu} ${
-        isOpen ? styles.isActive : styles.isNotActive
-      }`}
+      className={`${styles.collapsedMenu} ${isOpen ? styles.isActive : styles.isNotActive
+        }`}
     >
       <div className={styles.closeButtonBox} onClick={handleMenu}>
         <p>Voltar</p>
@@ -32,7 +31,7 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
         >
           <div className={styles.contact}>
             <div className={styles.icon}>
-              <IconContext.Provider value={{ size: "50%" }}>
+              <IconContext.Provider value={{ size: "100%" }}>
                 <AiFillGithub color="#d4d4d4" />
               </IconContext.Provider>
             </div>
@@ -47,7 +46,7 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
         >
           <div className={styles.contact}>
             <div className={styles.icon}>
-              <IconContext.Provider value={{ size: "50%" }}>
+              <IconContext.Provider value={{ size: "100%" }}>
                 <AiFillLinkedin color="#ffffff" />
               </IconContext.Provider>
             </div>
@@ -58,7 +57,7 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
         <a href="#" target="_blank" rel="noreferrer">
           <div className={styles.contact}>
             <div className={styles.icon}>
-              <IconContext.Provider value={{ size: "50%" }}>
+              <IconContext.Provider value={{ size: "100%" }}>
                 <AiOutlineMail color="#ffffff" />
               </IconContext.Provider>
             </div>
@@ -73,7 +72,7 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
         >
           <div className={styles.contact}>
             <div className={styles.icon}>
-              <IconContext.Provider value={{ size: "50%" }}>
+              <IconContext.Provider value={{ size: "100%" }}>
                 <AiOutlineWhatsApp color="#ffffff" />
               </IconContext.Provider>
             </div>

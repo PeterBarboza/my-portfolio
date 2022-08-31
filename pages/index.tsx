@@ -6,6 +6,7 @@ import { About } from "../components/About";
 import { Header } from "../components/Header";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { TextCard } from "../components/TextCard";
+import { Footer } from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
           deployLink="#"
         />
       </ProjectsSection>
+      <Footer />
     </Layout>
   );
 };
