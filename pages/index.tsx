@@ -7,6 +7,7 @@ import { Header } from "../components/Header";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { TextCard } from "../components/TextCard";
 import { Footer } from "../components/Footer";
+import { CurrentStudies } from "../components/CurrentStudies";
 
 const Home: NextPage = () => {
   return (
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
           deployLink="#"
         />
       </ProjectsSection>
+      <CurrentStudies />
       <Footer />
     </Layout>
   );
