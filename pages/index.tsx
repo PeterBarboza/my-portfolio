@@ -24,7 +24,7 @@ type githubrepository = {
 const Home: NextPage = () => {
   const [repos, setRepos] = useState<githubrepository[]>([])
   const [isHidden, setIsHidden] = useState<boolean>(true)
-  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL
+  const githubUrl = "https://api.github.com/users/peterbarboza/repos"
 
   useEffect(() => {
     function sortMethod(repoA: githubrepository, repoB: githubrepository) {
