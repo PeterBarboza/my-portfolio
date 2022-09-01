@@ -29,7 +29,7 @@ export function TextCard({
       }
       <div className={styles.attachmentsBox}>
         {githubLink ? (
-          <a href="" rel="noreferrer">
+          <a href={githubLink} rel="noreferrer" target="_blank">
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "80%" }}>
                 <AiFillGithub color="#000000" />
@@ -39,7 +39,7 @@ export function TextCard({
           </a>
         ) : null}
         {deployLink ? (
-          <a href="" rel="noreferrer">
+          <a href={deployLink} rel="noreferrer" target="_blank">
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "70%" }}>
                 <GrAttachment color="#000000" />
