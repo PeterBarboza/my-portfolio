@@ -7,9 +7,46 @@ import { Header } from "../components/Header";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { TextCard } from "../components/TextCard";
 import { Footer } from "../components/Footer";
-import { CurrentStudies } from "../components/CurrentStudies";
+import { StudiesSection } from "../components/StudiesSection";
+import { useEffect, useState } from "react";
+
+type githubrepository = {
+  name: string
+  html_url: string
+  description?: string
+  created_at: string
+  homepage?: string
+  owner: {
+    login: string
+  }
+}
 
 const Home: NextPage = () => {
+  const [repos, setRepos] = useState<githubrepository[]>([])
+  const [isHidden, setIsHidden] = useState<boolean>(true)
+  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL
+
+  useEffect(() => {
+    function sortMethod(repoA: githubrepository, repoB: githubrepository) {
+      const dateA = Date.parse(repoA.created_at)
+      const dateB = Date.parse(repoB.created_at)
+
+      return dateB - dateA
+    }
+
+    function filterMethod(repo: githubrepository) {
+      if (repo.name === repo.owner.login) return false
+      return true
+    }
+
+    (async () => {
+      const result: githubrepository[] =
+        await (await fetch(githubUrl!)).json()
+
+      setRepos(result.filter(filterMethod).sort(sortMethod))
+    })()
+  }, [])
+
   return (
     <Layout>
       <Head>
@@ -19,21 +56,38 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <About />
-      <ProjectsSection heading="Experiência profissional">
+      <ProjectsSection
+        heading="Experiência profissional"
+        hideExceededContent={false}
+      >
         <TextCard
           heading="Irbano"
           text={["Projeto desenvolvido para a área de turísmo."]}
         />
       </ProjectsSection>
-      <ProjectsSection heading="Projetos pessoais">
-        <TextCard
-          heading="AIBU"
-          text={["Rede social inspirada no Twitter."]}
-          githubLink="#"
-          deployLink="#"
-        />
+      <ProjectsSection
+        heading="Projetos pessoais"
+        isContentHidden={isHidden}
+        hideExceededContent={true}
+        setIsHidden={() => setIsHidden(prevState => !prevState)}
+      >
+        {
+          repos.map((item, index) => {
+            const { name, description = "", homepage, html_url } = item
+
+            return (
+              <TextCard
+                heading={name}
+                text={[description]}
+                githubLink={html_url}
+                deployLink={homepage}
+                key={index}
+              />
+            )
+          })
+        }
       </ProjectsSection>
-      <CurrentStudies />
+      <StudiesSection />
       <Footer />
     </Layout>
   );
