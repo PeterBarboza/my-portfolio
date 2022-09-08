@@ -1,46 +1,54 @@
-import { useEffect, useRef } from "react"
-import { DefaultSection } from "../DefaultSection"
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { DefaultSection } from "../DefaultSection";
 
-import styles from "./styles.module.scss"
+import styles from "./styles.module.scss";
 
 export function About() {
-  const headLineRef = useRef(null)
+  const headLineRef = useRef(null);
 
   useEffect(() => {
     function typewrite(element: any) {
-      const text: string[] = element.innerText.split('')
-      element.innerText = " "
+      const text: string[] = element.innerText.split("");
+      element.innerText = " ";
 
       text.forEach((letter, index) => {
         setTimeout(() => {
           element.innerHTML += letter;
-        }, 75 * index)
-      })
+        }, 75 * index);
+      });
     }
 
-    typewrite(headLineRef.current)
-  }, [])
+    typewrite(headLineRef.current);
+  }, []);
 
   return (
-    <DefaultSection
-      wrapperStyles={{ color: "#ffffff" }}
-    >
+    <DefaultSection wrapperStyles={{ color: "#ffffff" }}>
       <div className={styles.myPhotoBorder}>
         <div className={styles.myPhotoWrapper}>
-          <img
+          <Image
             loading="lazy"
             src="https://github.com/PeterBarboza.png"
             alt="Pedro Barboza"
-            style={{ borderRadius: "100%" }}
+            width={9999}
+            height={9999}
+            style={{ width: "100%", height: "100%", borderRadius: "100%" }}
           />
         </div>
       </div>
       <h1 className={styles.headline} ref={headLineRef}>
-        Olá! Sou Pedro Barboza<br />Desenvolvedor web fullstack
+        Olá! Sou Pedro Barboza
+        <br />
+        Desenvolvedor web fullstack
       </h1>
       <div className={styles.textBox}>
         <p>
-          Estudo desenvolvimento web a pouco mais de 2 anos, sempre me interessei por tecnologia desde a infância, então quando comecei a estudar programação foi amor a primeira vista. E agora depois de já ter atuado tanto no frontend como no backend em alguns projetos reais, hoje procuro minha primeira oportunidade de trabalho como desenvolvedor.
+          Estudo desenvolvimento web a pouco mais de 2 anos, sempre me
+          interessei por tecnologia desde a infância, então quando comecei a
+          estudar programação foi amor a primeira vista. E agora depois de já
+          ter atuado tanto no frontend como no backend em alguns projetos reais,
+          hoje procuro minha primeira oportunidade de trabalho como
+          desenvolvedor.
         </p>
       </div>
       <div className={styles.divisionLine}></div>
@@ -104,7 +112,8 @@ export function About() {
 
         <div className={styles.image}>
           <img
-            loading="lazy" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"
+            loading="lazy"
+            src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"
             alt="Express.js"
           />
         </div>
@@ -142,5 +151,5 @@ export function About() {
         </div>
       </div>
     </DefaultSection>
-  )
+  );
 }

@@ -1,6 +1,7 @@
 .myPhotoBorder {
   width: fit-content;
   height: fit-content;
+
   padding: 3px;
 
   display: flex;
@@ -11,22 +12,18 @@
   border-radius: 100%;
 
   .myPhotoWrapper {
-    max-width: 200px;
-    width: 100%;
-    height: fit-content;
+    width: 150px;
+    max-width: 80vw;
+    height: 150px;
+    max-height: 80vw;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    img {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 300px) {
-    .myPhotoWrapper {
-      max-width: 150px;
+    @media (min-width: 300px) {
+      width: 200px;
+      height: 200px;
     }
   }
 }
@@ -44,7 +41,6 @@
 }
 
 @keyframes flash {
-
   0%,
   100% {
     opacity: 1;
