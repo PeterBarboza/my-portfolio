@@ -1,15 +1,15 @@
-import { ReactNode } from "react";
-import { DefaultSection } from "../DefaultSection";
+import { ReactNode } from "react"
+import { DefaultSection } from "../DefaultSection"
 
-import styles from "./styles.module.scss";
+import styles from "./styles.module.scss"
 
 type props = {
-  children: ReactNode;
-  heading: string;
-  hideExceededContent: boolean;
-  isContentHidden?: boolean;
-  setIsHidden?: () => void;
-};
+  children: ReactNode
+  heading: string
+  hideExceededContent: boolean
+  isContentHidden?: boolean
+  setIsHidden?: () => void
+}
 
 export function ProjectsSection({
   heading,
@@ -27,7 +27,7 @@ export function ProjectsSection({
         wrapperStyles={
           isContentHidden
             ? {
-                maxHeight: "70vh",
+                maxHeight: "500px",
                 overflowY: "hidden",
                 position: "relative",
               }
@@ -50,7 +50,7 @@ export function ProjectsSection({
           </div>
         )}
       </DefaultSection>
-    );
+    )
   }
 
   return (
@@ -62,5 +62,5 @@ export function ProjectsSection({
       <h2>{heading}</h2>
       {children}
     </DefaultSection>
-  );
+  )
 }
