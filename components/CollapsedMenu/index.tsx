@@ -1,23 +1,25 @@
-import { IconContext } from "react-icons";
+import { IconContext } from "react-icons"
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiOutlineMail,
-  AiOutlineWhatsApp
-} from "react-icons/ai";
+  AiOutlineWhatsApp,
+  AiOutlineFilePdf,
+} from "react-icons/ai"
 
-import styles from "./styles.module.scss";
+import styles from "./styles.module.scss"
 
 type props = {
-  isOpen: boolean;
-  handleMenu: () => void;
-};
+  isOpen: boolean
+  handleMenu: () => void
+}
 
 export function CollapsedMenu({ isOpen, handleMenu }: props) {
   return (
     <div
-      className={`${styles.collapsedMenu} ${isOpen ? styles.isActive : styles.isNotActive
-        }`}
+      className={`${styles.collapsedMenu} ${
+        isOpen ? styles.isActive : styles.isNotActive
+      }`}
     >
       <div className={styles.closeButtonBox} onClick={handleMenu}>
         <p>Voltar</p>
@@ -79,7 +81,21 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
             <p>+55 12 99654-8767</p>
           </div>
         </a>
+        <a
+          href="/currículo-pedro-barboza.pdf"
+          download="Currículo Pedro Barboza.pdf"
+          rel="noreferrer"
+        >
+          <div className={styles.contact}>
+            <div className={styles.icon}>
+              <IconContext.Provider value={{ size: "100%" }}>
+                <AiOutlineFilePdf color="#ffffff" />
+              </IconContext.Provider>
+            </div>
+            <p>Baixar meu currículo</p>
+          </div>
+        </a>
       </div>
     </div>
-  );
+  )
 }
