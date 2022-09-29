@@ -65,7 +65,10 @@ const Home: NextPage = () => {
       >
         <TextCard
           heading="Irbano"
-          text={["Projeto desenvolvido para a área de turísmo."]}
+          text={[
+            "Projeto desenvolvido para a área de turísmo.",
+            "Atuo como dev Backend. Tenho trabalhado com NodeJS, Typescript, Express, TypeORM, Docker, Clean architecture, e os serviços RDS e Cognito da AWS.",
+          ]}
         />
       </ProjectsSection>
       {!repos || repos.length < 1 ? null : (

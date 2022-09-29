@@ -1,26 +1,26 @@
-import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { DefaultSection } from "../DefaultSection";
+import Image from "next/image"
+import { useEffect, useRef } from "react"
+import { DefaultSection } from "../DefaultSection"
 
-import styles from "./styles.module.scss";
+import styles from "./styles.module.scss"
 
 export function About() {
-  const headLineRef = useRef(null);
+  const headLineRef = useRef(null)
 
   useEffect(() => {
     function typewrite(element: any) {
-      const text: string[] = element.innerText.split("");
-      element.innerText = " ";
+      const text: string[] = element.innerText.split("")
+      element.innerText = " "
 
       text.forEach((letter, index) => {
         setTimeout(() => {
-          element.innerHTML += letter;
-        }, 75 * index);
-      });
+          element.innerHTML += letter
+        }, 75 * index)
+      })
     }
 
-    typewrite(headLineRef.current);
-  }, []);
+    typewrite(headLineRef.current)
+  }, [])
 
   return (
     <DefaultSection wrapperStyles={{ color: "#ffffff" }}>
@@ -43,12 +43,11 @@ export function About() {
       </h1>
       <div className={styles.textBox}>
         <p>
-          Estudo desenvolvimento web a pouco mais de 2 anos, sempre me
-          interessei por tecnologia desde a infância, então quando comecei a
-          estudar programação foi amor a primeira vista. E agora depois de já
-          ter atuado tanto no frontend como no backend em alguns projetos reais,
-          hoje procuro minha primeira oportunidade de trabalho como
-          desenvolvedor.
+          Estudo desenvolvimento web a quase 3 anos, sempre me interessei por
+          tecnologia desde a infância, então quando comecei a estudar
+          programação foi amor a primeira vista. Gosto muito de aprender,
+          ensinar e resolver problemas através da tecnologia e quero fazer tudo
+          isso cada vez mais.
         </p>
       </div>
       <div className={styles.divisionLine}></div>
@@ -125,7 +124,34 @@ export function About() {
             alt="MongoDB"
           />
         </div>
-
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/MySQL-3E6E93?style=for-the-badge&logo=mysql&logoColor=61DAFB"
+            alt="MySQL"
+          />
+        </div>
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Prisma-5A67D8?style=for-the-badge&logo=prisma&logoColor=white"
+            alt="Prisma"
+          />
+        </div>
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/%7B%7D%20Type%20ORM-FE0902?style=for-the-badge&logoColor=white"
+            alt="TypeORM"
+          />
+        </div>
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white"
+            alt="Docker"
+          />
+        </div>
         <div className={styles.image}>
           <img
             loading="lazy"
@@ -151,5 +177,5 @@ export function About() {
         </div>
       </div>
     </DefaultSection>
-  );
+  )
 }

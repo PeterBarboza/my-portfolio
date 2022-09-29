@@ -1,32 +1,30 @@
-import { CSSProperties } from "react";
-import { IconContext } from "react-icons";
-import { AiFillGithub } from "react-icons/ai";
-import { GrAttachment } from "react-icons/gr";
-import styles from "./styles.module.scss";
+import { CSSProperties } from "react"
+import { IconContext } from "react-icons"
+import { AiFillGithub } from "react-icons/ai"
+import { GrAttachment } from "react-icons/gr"
+import styles from "./styles.module.scss"
 
 type props = {
-  heading: string;
-  text: string[];
+  heading: string
+  text: string[]
   textCardStyle?: CSSProperties
-  githubLink?: string;
-  deployLink?: string;
-};
+  githubLink?: string
+  deployLink?: string
+}
 
 export function TextCard({
   heading,
   text,
   githubLink,
   deployLink,
-  textCardStyle = {}
+  textCardStyle = {},
 }: props) {
   return (
     <div className={styles.textCard} style={textCardStyle}>
       <h3>{heading}</h3>
-      {
-        text.map((item, index) => {
-          return <p key={index}>{item}</p>;
-        })
-      }
+      {text.map((item, index) => {
+        return <p key={index}>{item}</p>
+      })}
       <div className={styles.attachmentsBox}>
         {githubLink ? (
           <a href={githubLink} rel="noreferrer" target="_blank">
@@ -50,5 +48,5 @@ export function TextCard({
         ) : null}
       </div>
     </div>
-  );
+  )
 }
