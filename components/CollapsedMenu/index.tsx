@@ -82,8 +82,9 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
           </div>
         </a>
         <a
-          href="/currículo-pedro-barboza.pdf"
-          download="Currículo Pedro Barboza.pdf"
+          href="https://github.com/PeterBarboza/my-portfolio/raw/main/public/curriculo-pedro-barboza.pdf"
+          target="_blank"
+          download="curriculo-pedro-barboza.pdf"
           rel="noreferrer"
         >
           <div className={styles.contact}>

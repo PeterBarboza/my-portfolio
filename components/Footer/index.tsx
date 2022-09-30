@@ -79,7 +79,7 @@ export function Footer() {
           </div>
         </a>
         <a
-          href="/currículo-pedro-barboza.pdf"
+          href="https://github.com/PeterBarboza/my-portfolio/raw/main/public/curriculo-pedro-barboza.pdf"
           download="Currículo Pedro Barboza.pdf"
           rel="noreferrer"
         >
