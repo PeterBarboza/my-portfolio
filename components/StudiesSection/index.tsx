@@ -30,10 +30,9 @@ export function StudiesSection() {
         base, como a semântica do HTML, o objeto DOM, o uso correto dos diversos
         seletores e propriedades CSS, além de um bom uso do Javascript puro,
         comecei a estudar sobre ReactJS. Estou habituado aos conceitos de
-        componentização, propriedade e estado do React, além do uso de hooks,
-        responsividade e algumas da boas práticas do desenvolvimento de SPAs.
-        Também já uso NextJS a um tempo. Atualmente estou estudando a trilha de
-        ReactJS do curso <i>Ignite</i> da Rocketseat.
+        componentização, propriedade e estado do React, além do uso de hooks e
+        responsividade. Também já uso NextJS a um tempo. Atualmente estou
+        estudando a trilha de ReactJS do curso <i>Ignite</i> da Rocketseat.
       </p>
 
       <h3>Cloud</h3>
