@@ -56,7 +56,16 @@ export function CollapsedMenu({ isOpen, handleMenu }: props) {
           </div>
         </a>
 
-        <a href="#" target="_blank" rel="noreferrer">
+        <a
+          href="#"
+          target="_blank"
+          rel="noreferrer"
+          onClick={(ev) => {
+            ev.preventDefault()
+            window.alert("Email copiado ✅")
+            navigator.clipboard.writeText("pedro.barboza.dev@gmail.com")
+          }}
+        >
           <div className={styles.contact}>
             <div className={styles.icon}>
               <IconContext.Provider value={{ size: "100%" }}>
