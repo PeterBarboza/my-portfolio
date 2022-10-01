@@ -48,10 +48,10 @@ export function Footer() {
           href="#"
           target="_blank"
           rel="noreferrer"
-          onClick={(ev) => {
+          onClick={async (ev) => {
             ev.preventDefault()
             window.alert("Email copiado ✅")
-            navigator.clipboard.writeText("pedro.barboza.dev@gmail.com")
+            await navigator.clipboard.writeText("pedro.barboza.dev@gmail.com")
           }}
         >
           <div className={styles.contact}>
