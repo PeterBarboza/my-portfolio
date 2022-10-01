@@ -50,8 +50,8 @@ export function Footer() {
           rel="noreferrer"
           onClick={async (ev) => {
             ev.preventDefault()
-            window.alert("Email copiado ✅")
             await navigator.clipboard.writeText("pedro.barboza.dev@gmail.com")
+            window.alert("Email copiado ✅")
           }}
         >
           <div className={styles.contact}>
