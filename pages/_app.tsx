@@ -14,9 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			gtag.pageview(url)
 		}
 
-		console.log("Passou no develop")
 		if (process.env.NODE_ENV !== "production") return
-		console.log("Passou no production")
 
 		router.events.on("routeChangeComplete", handleRouteChange)
 
