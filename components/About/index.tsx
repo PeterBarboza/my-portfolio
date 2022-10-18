@@ -96,6 +96,46 @@ export function About() {
         <div className={styles.image}>
           <img
             loading="lazy"
+            src="https://img.shields.io/badge/Serverless-black?style=for-the-badge&logo=serverless&logoColor=FD5750"
+            alt="Serverless framework"
+          />
+        </div>
+        
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Amazon_S3-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"
+            alt="Amazon S3"
+          />
+        </div>
+
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Amazon_EC2-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white"
+            alt="Amazon EC2"
+          />
+        </div>
+
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Amazon_Lambda-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white"
+            alt="Amazon Lambda"
+          />
+        </div>
+
+        <div className={styles.image}>
+          <img
+            loading="lazy"
+            src="https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white"
+            alt="Dynamo DB"
+          />
+        </div>
+
+        <div className={styles.image}>
+          <img
+            loading="lazy"
             src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
             alt="React.js"
           />

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import type { NextPage } from "next"
 import Head from "next/head"
 
@@ -8,7 +9,8 @@ import { ProjectsSection } from "../components/ProjectsSection"
 import { TextCard } from "../components/TextCard"
 import { Footer } from "../components/Footer"
 import { StudiesSection } from "../components/StudiesSection"
-import { useEffect, useState } from "react"
+
+import { irbano } from "../assets/texts/irbano"
 
 type githubrepository = {
   name: string
@@ -64,11 +66,8 @@ const Home: NextPage = () => {
         hideExceededContent={false}
       >
         <TextCard
-          heading="Irbano"
-          text={[
-            "Projeto desenvolvido para a área de turísmo.",
-            "Atuo como dev Backend. Tenho trabalhado com NodeJS, Typescript, Express, TypeORM, Docker, Clean architecture, e os serviços RDS e Cognito da AWS.",
-          ]}
+          heading={irbano.heading}
+          text={[irbano.text]}
         />
       </ProjectsSection>
       {!repos || repos.length < 1 ? null : (
