@@ -13,6 +13,7 @@ import { StudiesSection } from "../components/StudiesSection"
 import { irbano } from "../assets/texts/irbano"
 
 type githubrepository = {
+  id: string
   name: string
   html_url: string
   description?: string
@@ -77,8 +78,8 @@ const Home: NextPage = () => {
           hideExceededContent={true}
           setIsHidden={() => setIsHidden((prevState) => !prevState)}
         >
-          {repos.map((item, index) => {
-            const { name, description = "", homepage, html_url } = item
+          {repos.map((item) => {
+            const { id, name, description = "", homepage, html_url } = item
 
             return (
               <TextCard
@@ -86,7 +87,7 @@ const Home: NextPage = () => {
                 text={[description]}
                 githubLink={html_url}
                 deployLink={homepage}
-                key={index}
+                key={id}
               />
             )
           })}
