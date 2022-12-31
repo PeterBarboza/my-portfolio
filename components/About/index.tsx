@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import { DefaultSection } from "../DefaultSection"
 
 import styles from "./styles.module.scss"
@@ -7,20 +7,20 @@ import styles from "./styles.module.scss"
 export function About() {
   const headLineRef = useRef(null)
 
-  useEffect(() => {
-    function typewrite(element: any) {
-      const text: string[] = element.innerText.split("")
-      element.innerText = " "
+  const typewrite = useCallback((element: any) => {
+    const text: string[] = element.innerText.split("")
+    element.innerText = " "
 
-      text.forEach((letter, index) => {
-        setTimeout(() => {
-          element.innerHTML += letter
-        }, 75 * index)
-      })
-    }
-
-    typewrite(headLineRef.current)
+    text.forEach((letter, index) => {
+      setTimeout(() => {
+        element.innerHTML += letter
+      }, 75 * index)
+    })
   }, [])
+
+  useEffect(() => {
+    typewrite(headLineRef.current)
+  }, [typewrite])
 
   return (
     <DefaultSection wrapperStyles={{ color: "#ffffff" }}>

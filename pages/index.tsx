@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import type { NextPage } from "next"
 import Head from "next/head"
 
@@ -18,17 +18,31 @@ type githubrepository = {
   description?: string
   created_at: string
   homepage?: string
+  tags_url?: string
   owner: {
     login: string
   }
 }
 
+type repositoryTagsObject = {
+  name: string
+  zipball_url: string
+  tarball_url: string
+  commit: {
+    sha: string
+    url: string
+  },
+  node_id: string
+}
+
+type repositoryTagsResponse = repositoryTagsObject[]
+
 const Home: NextPage = () => {
   const [repos, setRepos] = useState<githubrepository[]>([])
   const [isHidden, setIsHidden] = useState<boolean>(true)
-  const githubUrl = "https://api.github.com/users/peterbarboza/repos"
+  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://api.github.com/users/peterbarboza/repos"
 
-  useEffect(() => {
+  const getRepos = useCallback(async () => {
     function sortMethod(repoA: githubrepository, repoB: githubrepository) {
       const dateA = Date.parse(repoA.created_at)
       const dateB = Date.parse(repoB.created_at)
@@ -36,21 +50,37 @@ const Home: NextPage = () => {
       return dateB - dateA
     }
 
-    function filterMethod(repo: githubrepository) {
-      if (repo.name === repo.owner.login) return false
-      return true
-    }
+    const repos: githubrepository[] = await (
+      await fetch(githubUrl!)
+    ).json()
 
-    ;(async () => {
-      try {
-        const result: githubrepository[] = await (
-          await fetch(githubUrl!)
-        ).json()
+    const validRepos = (
+      await Promise.all(
+        repos
+          .map(async (repo) => {
+            if(!repo) return null
+            if(!repo.owner?.login || repo.name === repo.owner?.login) return null
+            if(!repo.tags_url) return null
+    
+            const repoTags: repositoryTagsResponse = await (
+              await fetch(repo.tags_url)
+            ).json()
+    
+            if(repoTags.find((tag) => tag.name === "portfolio_repo")) return repo
+    
+            return null
+          })
+      )
+    )
+    .filter((repo) => repo ? repo : false)
+    .sort(sortMethod as any) as githubrepository[]
 
-        setRepos(result.filter(filterMethod).sort(sortMethod))
-      } catch (error) {}
-    })()
-  }, [])
+    setRepos(validRepos)
+  }, [githubUrl])
+
+  useEffect(() => {
+    getRepos()
+  }, [getRepos])
 
   return (
     <Layout>
@@ -86,7 +116,7 @@ const Home: NextPage = () => {
                 text={[description]}
                 githubLink={html_url}
                 deployLink={homepage}
-                key={index}
+                key={`github-repository-${index}`}
               />
             )
           })}
