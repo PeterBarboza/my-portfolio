@@ -13,6 +13,7 @@ import { StudiesSection } from "../components/StudiesSection"
 import { irbano } from "../assets/texts/irbano"
 
 type githubrepository = {
+  id: string
   name: string
   html_url: string
   description?: string
@@ -108,7 +109,7 @@ const Home: NextPage = () => {
           setIsHidden={() => setIsHidden((prevState) => !prevState)}
         >
           {repos.map((item, index) => {
-            const { name, description = "", homepage, html_url } = item
+            const { id, name, description = "", homepage, html_url } = item
 
             return (
               <TextCard
